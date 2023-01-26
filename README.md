@@ -1,46 +1,55 @@
-# Advanced Sample Hardhat Project
+## Crypto Exchange Second Chance
 
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
+### What is second chance?
 
-The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
+We at Crypto Exchange decided to offer a second chance to investors who took a hit from bad investment calls, Luna collapse, shitcoin scams , etc…
 
-Try running some of the following tasks:
+So what is Second Chance ?
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-npx hardhat help
-REPORT_GAS=true npx hardhat test
-npx hardhat coverage
-npx hardhat run scripts/1_1_deploy.ts
-TS_NODE_FILES=true npx ts-node scripts/1_1_deploy.ts
-npx eslint '**/*.{js,ts}'
-npx eslint '**/*.{js,ts}' --fix
-npx prettier '**/*.{json,sol,md}' --check
-npx prettier '**/*.{json,sol,md}' --write
-npx solhint 'contracts/**/*.sol'
-npx solhint 'contracts/**/*.sol' --fix
-```
+Second chance as the name states is a second opportunity for you to get rid of your bad investments (shitcoins) that are now worth 0 by locking your shitcoins on our exchange and getting CEX in return.
 
-# Etherscan verification
 
-To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
+### How to participate?
 
-In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your Ropsten node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:
+In order to participate you would need to go to our platform : —— and connect your wallet.
 
-```shell
-hardhat run --network ropsten scripts/1_1_deploy.ts
-```
+Once you connect your wallet,you will be able to enter the contract address of the shitcoin that you hold and click on verify to lock it in our platform.
 
-Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
+Please note that you can only lock 100% of your shitcoin holdings.
 
-```shell
-npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
-```
+If you have more than one shitcoin,you can choose one or more shitcoin by entering their contract address respectively and verifying your holdings.
 
-# Performance optimizations
+You can then check how many shitcoins you have locked in our platform and unstake at any time you like minus a 10% fee.
 
-For faster runs of your tests and scripts, consider skipping ts-node's type checking by setting the environment variable `TS_NODE_TRANSPILE_ONLY` to `1` in hardhat's environment. For more details see [the documentation](https://hardhat.org/guides/typescript.html#performance-optimizations).
+Second Chance Entries will be open for a duration of two weeks.
+
+Please Note that u cannot stake your shitcoins anymore after the staking period has ended.
+
+
+### Rules
+
+You can only participate with 100% of your shitcoin holdings.
+You can unstake at any time but pay a 10% unstaking fee.
+You will be subject to CEX vesting under the “Second chance” category in the tokenomics. Please refer to the tokenomics : —— for more details.
+
+
+### Rewards
+
+5% of CEX supply will be given to second chance participants.
+
+After the staking period has ended,we will go through every entry and calculate the reward for each entry.
+
+Each shitcoin that you stake will be put in a pool containing all entries of that shitcoin,then CEX rewards will be divided depending on the pourcentage that you contribute to that pool.
+
+Every participant share of CEX given as rewards will be determined after the staking period.
+
+If you feel that you no longer want to replace your shitcoins with CEX you may unstake but pay a 10% fee.
+
+
+
+### Tokenomics & Vesting
+
+CEX tokenomics are available here: ——
+
+CEX given as rewards will be subject to the vesting under the “second chance” category.
+CEX given as rewards will be subject for a total of 29 months locking period including a cliff of 11 months.
