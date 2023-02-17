@@ -1351,8 +1351,8 @@
       }
     },
     "test/foundry/CryptoExchange.t.sol": {
-      "lastModificationDate": 1676629917510,
-      "contentHash": "0c1012e457b6d44e2786b52f15a605aa",
+      "lastModificationDate": 1676651988073,
+      "contentHash": "e10cd5b66699333385d3c147ed0ea6f6",
       "sourceName": "test/foundry/CryptoExchange.t.sol",
       "solcConfig": {
         "settings": {
@@ -1412,9 +1412,74 @@
         }
       }
     },
+    "test/foundry/LPStaking.t.sol": {
+      "lastModificationDate": 1676664815843,
+      "contentHash": "c32cd0880bca1f1cbfb29c91bbf09a64",
+      "sourceName": "test/foundry/LPStaking.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "contracts/Staking/LPStaking.sol",
+        "contracts/TestTokenOne.sol",
+        "contracts/TestTokenTwo.sol",
+        "foundry/lib/forge-std/lib/ds-test/src/test.sol",
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/StdAssertions.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdError.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Test.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "node_modules/@openzeppelin/contracts/access/Ownable.sol",
+        "node_modules/@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "node_modules/@openzeppelin/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "=0.8.17",
+      "artifacts": {
+        "LPStakingTest": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "LPStaking.t.sol/LPStakingTest.json"
+        }
+      }
+    },
     "test/foundry/SecondChanceStakingTokenBank.t.sol": {
-      "lastModificationDate": 1676651902235,
-      "contentHash": "22c1f51a9048ff07d6cce0bfcb468cd9",
+      "lastModificationDate": 1676651986668,
+      "contentHash": "2dbc516dd21e1f860f05cc215771336c",
       "sourceName": "test/foundry/SecondChanceStakingTokenBank.t.sol",
       "solcConfig": {
         "settings": {
