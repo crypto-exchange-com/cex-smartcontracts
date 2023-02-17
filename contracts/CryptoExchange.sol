@@ -22,6 +22,7 @@ contract CryptoExchange is ERC20, Ownable {
     * @param amount the amount to transfer    
     */
     function transfer(address to, uint256 amount) public override returns (bool) {
+        require(amount > 0, "Amount must be greater than zero");
         address owner = _msgSender();
         
         uint256 fee = _getFeeFor(amount);
@@ -43,6 +44,8 @@ contract CryptoExchange is ERC20, Ownable {
     * @param amount the amount to transfer    
     */
     function transferFrom(address from, address to, uint256 amount) public override returns (bool) {
+        require(amount > 0, "Amount must be greater than zero");
+
         address spender = _msgSender();
         _spendAllowance(from, spender, amount);
         
@@ -71,6 +74,7 @@ contract CryptoExchange is ERC20, Ownable {
     * @param feeRecipient the new recipient address
     */
     function setFeeRecipient(address feeRecipient) onlyOwner external {
+        require(feeRecipient != address(0), "Fee recipient cannot be zero address");
         FeeRecipient = feeRecipient;
     }
 

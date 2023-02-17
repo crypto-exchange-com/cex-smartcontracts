@@ -34,6 +34,11 @@ contract SecondChanceStakingTokenBank is ReentrancyGuard, Ownable {
         return StakeEntryIds[_address];
     }
 
+    function getStakeEntry(uint256 _id) external view returns (StakeEntry memory) {
+        require(StakeEntries[_id].Staker == _msgSender(), "not allowed to view this entry");
+        return StakeEntries[_id];
+    }
+
     /**
     * @dev function to stake the given token (amount = all msgSender has)
     * @param stakingTokenAddress the token to stake
@@ -85,6 +90,7 @@ contract SecondChanceStakingTokenBank is ReentrancyGuard, Ownable {
     * @param endDate the end date to set
     */
     function setPoolEndDate(uint256 endDate) external onlyOwner {
+        require(endDate > PoolEndDate, "cannot set to a date before the current PoolEndDate");
         PoolEndDate = endDate;
     }
 
@@ -93,6 +99,7 @@ contract SecondChanceStakingTokenBank is ReentrancyGuard, Ownable {
     * @param startDate the start date to set
     */
     function setWindowStart(uint256 startDate) external onlyOwner {
+        require(startDate > WindowStart, "cannot set to a date before the current WindowStart");
         WindowStart = startDate;
     }
 
@@ -101,6 +108,9 @@ contract SecondChanceStakingTokenBank is ReentrancyGuard, Ownable {
     * @param endDate the end date to set
     */
     function setWindowEnd(uint256 endDate) external onlyOwner {
+        require(endDate > block.timestamp, "cannot set to a date before the current WindowStart");
+        require(endDate > WindowEnd, "cannot set to a date before the current WindowEnd");
+        require(endDate < PoolEndDate, "cannot set to a date after the current PoolEndDate");
         WindowEnd = endDate;
     }
 
