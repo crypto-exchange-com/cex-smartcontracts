@@ -12,6 +12,7 @@ describe("Seed investor staking tests", function () {
   let cexTokenInstance: any;
   let mockTokenInstance: any;
   let stakingContractInstance: any;
+  let testTokenInstance: any;
   let owner: any;
   let addr1: any;
   let addr2: any;
@@ -22,6 +23,9 @@ describe("Seed investor staking tests", function () {
     const cexToken = await ethers.getContractFactory("CryptoExchange");
     [owner, addr1, addr2] = await ethers.getSigners();
     cexTokenInstance = await cexToken.deploy(addr1.address);
+
+    const testToken = await ethers.getContractFactory("TestTokenOne");
+    testTokenInstance = await testToken.deploy();
 
     const stakingContract = await ethers.getContractFactory(
       "SeedInvestorStaking"
@@ -91,6 +95,11 @@ describe("Seed investor staking tests", function () {
         await cexTokenInstance.balanceOf(stakingContractInstance.address)
       ).to.equal(amount);
 
+      await testTokenInstance.transfer(stakingContractInstance.address, amount);
+      expect(
+        await testTokenInstance.balanceOf(stakingContractInstance.address)
+      ).to.equal(amount);
+
       await mockTokenInstance.transfer(stakingContractInstance.address, amount);
       expect(
         await mockTokenInstance.balanceOf(stakingContractInstance.address)
@@ -114,21 +123,21 @@ describe("Seed investor staking tests", function () {
     it("should retrieve token from StakingRewards and reduce contracts balance", async function () {
       await stakingContractInstance.notifyRewardAmount(amount);
       await stakingContractInstance.recoverERC20(
-        cexTokenInstance.address,
+        testTokenInstance.address,
         amount
       );
       expect(
-        await cexTokenInstance.balanceOf(stakingContractInstance.address)
+        await testTokenInstance.balanceOf(stakingContractInstance.address)
       ).to.equal(0);
     });
 
     it("should retrieve token from StakingRewards and and increase owners balance", async function () {
       await stakingContractInstance.notifyRewardAmount(amount);
       await stakingContractInstance.recoverERC20(
-        cexTokenInstance.address,
+        testTokenInstance.address,
         amount
       );
-      expect(await cexTokenInstance.balanceOf(owner.address)).to.equal(
+      expect(await testTokenInstance.balanceOf(owner.address)).to.equal(
         "888000000000000000000000000"
       );
     });
@@ -136,38 +145,38 @@ describe("Seed investor staking tests", function () {
     it("should emit Recovered event", async function () {
       await stakingContractInstance.notifyRewardAmount(amount);
       await expect(
-        stakingContractInstance.recoverERC20(cexTokenInstance.address, amount)
+        stakingContractInstance.recoverERC20(testTokenInstance.address, amount)
       )
         .to.emit(stakingContractInstance, "Recovered")
-        .withArgs(cexTokenInstance.address, amount);
+        .withArgs(testTokenInstance.address, amount);
     });
 
     it("should retrieve foreign token from StakingRewards and reduce contracts balance", async function () {
       await stakingContractInstance.recoverERC20(
-        mockTokenInstance.address,
+        testTokenInstance.address,
         amount
       );
       expect(
-        await mockTokenInstance.balanceOf(stakingContractInstance.address)
+        await testTokenInstance.balanceOf(stakingContractInstance.address)
       ).to.equal(0);
     });
 
     it("should retrieve foreign token from StakingRewards and and increase owners balance", async function () {
       await stakingContractInstance.recoverERC20(
-        mockTokenInstance.address,
+        testTokenInstance.address,
         amount
       );
-      expect(await mockTokenInstance.balanceOf(owner.address)).to.equal(
+      expect(await testTokenInstance.balanceOf(owner.address)).to.equal(
         "888000000000000000000000000"
       );
     });
 
     it("foreign should emit Recovered event", async function () {
       await expect(
-        stakingContractInstance.recoverERC20(mockTokenInstance.address, amount)
+        stakingContractInstance.recoverERC20(testTokenInstance.address, amount)
       )
         .to.emit(stakingContractInstance, "Recovered")
-        .withArgs(mockTokenInstance.address, amount);
+        .withArgs(testTokenInstance.address, amount);
     });
   });
 

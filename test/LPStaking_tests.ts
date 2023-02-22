@@ -10,6 +10,7 @@ describe("Seed investor staking tests", function () {
   let stakingTokenInstance: any;
   let rewardTokenInstance: any;
   let stakingContractInstance: any;
+  let testTokenInstance: any;
   let owner: any;
   let addr1: any;
   let addr2: any;
@@ -38,6 +39,9 @@ describe("Seed investor staking tests", function () {
     await rewardTokenInstance.addFeeExclusion(owner.address);
     await rewardTokenInstance.addFeeExclusion(addr1.address);
     await rewardTokenInstance.addFeeExclusion(addr2.address);
+
+    const testToken = await ethers.getContractFactory("TestTokenOne");
+    testTokenInstance = await testToken.deploy();
   });
 
   describe("Constructor & Settings", function () {
@@ -99,6 +103,11 @@ describe("Seed investor staking tests", function () {
       expect(
         await rewardTokenInstance.balanceOf(stakingContractInstance.address)
       ).to.equal(amount);
+
+      await testTokenInstance.transfer(stakingContractInstance.address, amount);
+      expect(
+        await testTokenInstance.balanceOf(stakingContractInstance.address)
+      ).to.equal(amount);
     });
 
     it("only owner can call recoverERC20", async () => {
@@ -120,11 +129,11 @@ describe("Seed investor staking tests", function () {
 
     it("should retrieve external token from StakingRewards and reduce contracts balance", async () => {
       await stakingContractInstance.recoverERC20(
-        rewardTokenInstance.address,
+        testTokenInstance.address,
         amount
       );
       expect(
-        await rewardTokenInstance.balanceOf(stakingContractInstance.address)
+        await testTokenInstance.balanceOf(stakingContractInstance.address)
       ).to.equal(0);
     });
 
@@ -134,11 +143,11 @@ describe("Seed investor staking tests", function () {
       );
 
       await stakingContractInstance.recoverERC20(
-        rewardTokenInstance.address,
+        testTokenInstance.address,
         amount
       );
 
-      const ownerMOARBalanceAfter = await rewardTokenInstance.balanceOf(
+      const ownerMOARBalanceAfter = await testTokenInstance.balanceOf(
         owner.address
       );
       expect(ownerMOARBalanceAfter.sub(ownerMOARBalanceBefore)).to.equal(
@@ -149,12 +158,12 @@ describe("Seed investor staking tests", function () {
     it("should emit Recovered event", async () => {
       await expect(
         stakingContractInstance.recoverERC20(
-          rewardTokenInstance.address,
+          testTokenInstance.address,
           amount
         )
       )
         .to.emit(stakingContractInstance, "Recovered")
-        .withArgs(rewardTokenInstance.address, amount);
+        .withArgs(testTokenInstance.address, amount);
     });
   });
 

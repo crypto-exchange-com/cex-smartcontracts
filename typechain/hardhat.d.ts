@@ -33,9 +33,17 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.CryptoExchange__factory>;
     getContractFactory(
+      name: "MurkyBase",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MurkyBase__factory>;
+    getContractFactory(
       name: "IERC20Extended",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC20Extended__factory>;
+    getContractFactory(
+      name: "Merkle",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Merkle__factory>;
     getContractFactory(
       name: "SecondChanceRewardDistributor",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -87,10 +95,20 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.CryptoExchange>;
     getContractAt(
+      name: "MurkyBase",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MurkyBase>;
+    getContractAt(
       name: "IERC20Extended",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IERC20Extended>;
+    getContractAt(
+      name: "Merkle",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Merkle>;
     getContractAt(
       name: "SecondChanceRewardDistributor",
       address: string,

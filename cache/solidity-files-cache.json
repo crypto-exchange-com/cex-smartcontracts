@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/homer/Development/audits/work/cex-smartcontracts/contracts/CryptoExchange.sol": {
-      "lastModificationDate": 1676617917280,
-      "contentHash": "e82642def0abe1485dd2cbb9d8e52659",
+      "lastModificationDate": 1677075976785,
+      "contentHash": "8ce800218886d9a4b942b2ee3e7ce0db",
       "sourceName": "contracts/CryptoExchange.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -409,8 +409,8 @@
       ]
     },
     "/Users/homer/Development/audits/work/cex-smartcontracts/contracts/rewards/SecondChanceRewardDistributor.sol": {
-      "lastModificationDate": 1674737099241,
-      "contentHash": "84768fb41b801faccdc182e981f1e7a6",
+      "lastModificationDate": 1677075976781,
+      "contentHash": "a8d22345baa09753ed130fb37bb47e46",
       "sourceName": "contracts/rewards/SecondChanceRewardDistributor.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -449,8 +449,8 @@
       ]
     },
     "/Users/homer/Development/audits/work/cex-smartcontracts/contracts/Staking/SecondChanceStakingTokenBank.sol": {
-      "lastModificationDate": 1674737099240,
-      "contentHash": "628c34ef2fcc342139c86ca52d20044c",
+      "lastModificationDate": 1677075976785,
+      "contentHash": "1caf57024cc8e2480a1d26e16f7c8c7c",
       "sourceName": "contracts/Staking/SecondChanceStakingTokenBank.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -558,8 +558,8 @@
       "artifacts": []
     },
     "/Users/homer/Development/audits/work/cex-smartcontracts/contracts/Staking/LPStaking.sol": {
-      "lastModificationDate": 1674737099240,
-      "contentHash": "0faabda5f2972df9bcf34a1b4b1431cb",
+      "lastModificationDate": 1677075976784,
+      "contentHash": "11b121a3186ae9aaf7d06f711ccd49dc",
       "sourceName": "contracts/Staking/LPStaking.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -594,6 +594,78 @@
       ],
       "artifacts": [
         "LPStaking"
+      ]
+    },
+    "/Users/homer/Development/audits/work/cex-smartcontracts/contracts/Helpers/common/MurkyBase.sol": {
+      "lastModificationDate": 1677075976787,
+      "contentHash": "14bd34ef23e51b3bbb9dac54a16ace7b",
+      "sourceName": "contracts/Helpers/common/MurkyBase.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.17"
+      ],
+      "artifacts": [
+        "MurkyBase"
+      ]
+    },
+    "/Users/homer/Development/audits/work/cex-smartcontracts/contracts/Helpers/Merkle.sol": {
+      "lastModificationDate": 1677075976787,
+      "contentHash": "5945272ca8ffd50d5654af8a27796341",
+      "sourceName": "contracts/Helpers/Merkle.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./common/MurkyBase.sol"
+      ],
+      "versionPragmas": [
+        "0.8.17"
+      ],
+      "artifacts": [
+        "Merkle"
       ]
     }
   }

@@ -295,16 +295,16 @@ export class SecondChanceRewardDistributor extends BaseContract {
     >;
 
     "RewardWithdraw(address,uint256)"(
-      reciever?: string | null,
-      amount?: BigNumberish | null
+      reciever?: null,
+      amount?: null
     ): TypedEventFilter<
       [string, BigNumber],
       { reciever: string; amount: BigNumber }
     >;
 
     RewardWithdraw(
-      reciever?: string | null,
-      amount?: BigNumberish | null
+      reciever?: null,
+      amount?: null
     ): TypedEventFilter<
       [string, BigNumber],
       { reciever: string; amount: BigNumber }

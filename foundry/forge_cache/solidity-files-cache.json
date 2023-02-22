@@ -13,8 +13,8 @@
   },
   "files": {
     "contracts/CryptoExchange.sol": {
-      "lastModificationDate": 1676617917280,
-      "contentHash": "e82642def0abe1485dd2cbb9d8e52659",
+      "lastModificationDate": 1676900008662,
+      "contentHash": "8ce800218886d9a4b942b2ee3e7ce0db",
       "sourceName": "contracts/CryptoExchange.sol",
       "solcConfig": {
         "settings": {
@@ -98,9 +98,91 @@
         }
       }
     },
+    "contracts/Helpers/Merkle.sol": {
+      "lastModificationDate": 1677073413639,
+      "contentHash": "5945272ca8ffd50d5654af8a27796341",
+      "sourceName": "contracts/Helpers/Merkle.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "contracts/Helpers/common/MurkyBase.sol"
+      ],
+      "versionRequirement": "=0.8.17",
+      "artifacts": {
+        "Merkle": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Merkle.sol/Merkle.json"
+        }
+      }
+    },
+    "contracts/Helpers/common/MurkyBase.sol": {
+      "lastModificationDate": 1677057409580,
+      "contentHash": "14bd34ef23e51b3bbb9dac54a16ace7b",
+      "sourceName": "contracts/Helpers/common/MurkyBase.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.17",
+      "artifacts": {
+        "MurkyBase": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "MurkyBase.sol/MurkyBase.json"
+        }
+      }
+    },
     "contracts/Staking/LPStaking.sol": {
-      "lastModificationDate": 1674737099240,
-      "contentHash": "0faabda5f2972df9bcf34a1b4b1431cb",
+      "lastModificationDate": 1676893752525,
+      "contentHash": "11b121a3186ae9aaf7d06f711ccd49dc",
       "sourceName": "contracts/Staking/LPStaking.sol",
       "solcConfig": {
         "settings": {
@@ -369,8 +451,8 @@
       }
     },
     "contracts/rewards/SecondChanceRewardDistributor.sol": {
-      "lastModificationDate": 1674737099240,
-      "contentHash": "84768fb41b801faccdc182e981f1e7a6",
+      "lastModificationDate": 1677070407759,
+      "contentHash": "a8d22345baa09753ed130fb37bb47e46",
       "sourceName": "contracts/rewards/SecondChanceRewardDistributor.sol",
       "solcConfig": {
         "settings": {
@@ -1350,6 +1432,46 @@
         }
       }
     },
+    "node_modules/@openzeppelin/contracts/utils/math/SafeMath.sol": {
+      "lastModificationDate": 1674737130197,
+      "contentHash": "2337f0279507b5edf14a07067adf0d05",
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/math/SafeMath.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "SafeMath": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "SafeMath.sol/SafeMath.json"
+        }
+      }
+    },
     "test/foundry/CryptoExchange.t.sol": {
       "lastModificationDate": 1676651988073,
       "contentHash": "e10cd5b66699333385d3c147ed0ea6f6",
@@ -1413,8 +1535,8 @@
       }
     },
     "test/foundry/LPStaking.t.sol": {
-      "lastModificationDate": 1676664815843,
-      "contentHash": "c32cd0880bca1f1cbfb29c91bbf09a64",
+      "lastModificationDate": 1676895473776,
+      "contentHash": "e5a95899c83bd262fb0eaa6cb3f7e775",
       "sourceName": "test/foundry/LPStaking.t.sol",
       "solcConfig": {
         "settings": {
@@ -1474,6 +1596,74 @@
       "artifacts": {
         "LPStakingTest": {
           "0.8.17+commit.8df45f5f.Darwin.appleclang": "LPStaking.t.sol/LPStakingTest.json"
+        }
+      }
+    },
+    "test/foundry/SecondChanceRewardDistributor.t.sol": {
+      "lastModificationDate": 1677073379479,
+      "contentHash": "14e37d525882bb9ac128ca418a2d10e5",
+      "sourceName": "test/foundry/SecondChanceRewardDistributor.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "contracts/CryptoExchange.sol",
+        "contracts/Helpers/Merkle.sol",
+        "contracts/Helpers/common/MurkyBase.sol",
+        "contracts/rewards/SecondChanceRewardDistributor.sol",
+        "foundry/lib/forge-std/lib/ds-test/src/test.sol",
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/StdAssertions.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdError.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Test.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "node_modules/@openzeppelin/contracts/access/Ownable.sol",
+        "node_modules/@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "node_modules/@openzeppelin/contracts/utils/Context.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/MerkleProof.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeMath.sol"
+      ],
+      "versionRequirement": "=0.8.17",
+      "artifacts": {
+        "SecondChanceRewardDistributorTest": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "SecondChanceRewardDistributor.t.sol/SecondChanceRewardDistributorTest.json"
         }
       }
     },
@@ -1541,6 +1731,72 @@
       "artifacts": {
         "SecondChanceStakingTokenBankTest": {
           "0.8.17+commit.8df45f5f.Darwin.appleclang": "SecondChanceStakingTokenBank.t.sol/SecondChanceStakingTokenBankTest.json"
+        }
+      }
+    },
+    "test/foundry/SeedInvestorStaking.t.sol": {
+      "lastModificationDate": 1676899754990,
+      "contentHash": "b185d2fde6ae5eb4bc7fcb8bb15a2031",
+      "sourceName": "test/foundry/SeedInvestorStaking.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "contracts/Staking/SeedInvestorStaking.sol",
+        "contracts/TestTokenOne.sol",
+        "contracts/TestTokenTwo.sol",
+        "foundry/lib/forge-std/lib/ds-test/src/test.sol",
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/StdAssertions.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdError.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Test.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "node_modules/@openzeppelin/contracts/access/Ownable.sol",
+        "node_modules/@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "node_modules/@openzeppelin/contracts/utils/Context.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/MerkleProof.sol"
+      ],
+      "versionRequirement": "=0.8.17",
+      "artifacts": {
+        "SeedInvestorStakingTest": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "SeedInvestorStaking.t.sol/SeedInvestorStakingTest.json"
         }
       }
     }

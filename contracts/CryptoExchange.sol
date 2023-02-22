@@ -11,8 +11,8 @@ contract CryptoExchange is ERC20, Ownable {
 
     mapping(address => bool) public FeeExclusions;
 
-    constructor(address feeRecepient) ERC20("CEX Coin", "CEX") {
-        FeeRecipient = feeRecepient;
+    constructor(address feeRecipient) ERC20("CEX Coin", "CEX") {
+        FeeRecipient = feeRecipient;
         _mint(_msgSender(), 888000000 * 10 ** 18);
     }
 

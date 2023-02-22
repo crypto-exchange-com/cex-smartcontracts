@@ -164,12 +164,13 @@ contract LPStaking is ReentrancyGuard, Ownable {
     }
 
     /**
-    * @dev Recover any ERC20 tokens sent to this contract
+    * @dev Recover ERC20 tokens sent to this contract, except the staking and rewards tokens
     * @param tokenAddress token address
     * @param tokenAmount the amount of tokens
     */
     function recoverERC20(address tokenAddress, uint256 tokenAmount) external onlyOwner {
         require(tokenAddress != address(stakingToken), "Cannot withdraw the staking token");
+        require(tokenAddress != address(rewardsToken), "Cannot withdraw the reward token");
         IERC20(tokenAddress).transfer(owner(), tokenAmount);
         emit Recovered(tokenAddress, tokenAmount);
     }

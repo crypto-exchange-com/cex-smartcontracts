@@ -29,6 +29,7 @@ interface SecondChanceStakingTokenBankInterface extends ethers.utils.Interface {
     "StakeEntryIds(address,uint256)": FunctionFragment;
     "WindowEnd()": FunctionFragment;
     "WindowStart()": FunctionFragment;
+    "getStakeEntry(uint256)": FunctionFragment;
     "owner()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "setBaseFee(uint256)": FunctionFragment;
@@ -64,6 +65,10 @@ interface SecondChanceStakingTokenBankInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "WindowStart",
     values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getStakeEntry",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
@@ -122,6 +127,10 @@ interface SecondChanceStakingTokenBankInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "WindowEnd", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "WindowStart",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getStakeEntry",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
@@ -276,6 +285,22 @@ export class SecondChanceStakingTokenBank extends BaseContract {
 
     WindowStart(overrides?: CallOverrides): Promise<[BigNumber]>;
 
+    getStakeEntry(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<
+      [
+        [string, string, BigNumber, number, BigNumber, BigNumber] & {
+          Staker: string;
+          TokenAddress: string;
+          Amount: BigNumber;
+          State: number;
+          EntryTime: BigNumber;
+          PeriodFinish: BigNumber;
+        }
+      ]
+    >;
+
     owner(overrides?: CallOverrides): Promise<[string]>;
 
     renounceOwnership(
@@ -360,6 +385,20 @@ export class SecondChanceStakingTokenBank extends BaseContract {
 
   WindowStart(overrides?: CallOverrides): Promise<BigNumber>;
 
+  getStakeEntry(
+    _id: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<
+    [string, string, BigNumber, number, BigNumber, BigNumber] & {
+      Staker: string;
+      TokenAddress: string;
+      Amount: BigNumber;
+      State: number;
+      EntryTime: BigNumber;
+      PeriodFinish: BigNumber;
+    }
+  >;
+
   owner(overrides?: CallOverrides): Promise<string>;
 
   renounceOwnership(
@@ -443,6 +482,20 @@ export class SecondChanceStakingTokenBank extends BaseContract {
     WindowEnd(overrides?: CallOverrides): Promise<BigNumber>;
 
     WindowStart(overrides?: CallOverrides): Promise<BigNumber>;
+
+    getStakeEntry(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<
+      [string, string, BigNumber, number, BigNumber, BigNumber] & {
+        Staker: string;
+        TokenAddress: string;
+        Amount: BigNumber;
+        State: number;
+        EntryTime: BigNumber;
+        PeriodFinish: BigNumber;
+      }
+    >;
 
     owner(overrides?: CallOverrides): Promise<string>;
 
@@ -616,6 +669,11 @@ export class SecondChanceStakingTokenBank extends BaseContract {
 
     WindowStart(overrides?: CallOverrides): Promise<BigNumber>;
 
+    getStakeEntry(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
     renounceOwnership(
@@ -691,6 +749,11 @@ export class SecondChanceStakingTokenBank extends BaseContract {
     WindowEnd(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     WindowStart(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    getStakeEntry(
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 

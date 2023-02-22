@@ -109,7 +109,11 @@ describe("Seed investor staking tests", function () {
       );
 
       const releaseDate = await GetTimeStamp();
-      await secondChanceRewardDistributorInstance.setReleaseDate(releaseDate);
+      await secondChanceRewardDistributorInstance.setReleaseDate(
+        releaseDate + 1000
+      );
+
+      await fastForward(5 * DAY);
 
       await secondChanceRewardDistributorInstance
         .connect(addr2)
@@ -124,7 +128,6 @@ describe("Seed investor staking tests", function () {
       expect(contractBalanceAfter).to.equal("888000000000000000000000");
       expect(userBalanceAfter).to.equal("0");
     });
-    // todo implement test for phase 1
     it("Should succeed: first phase passed", async function () {
       await tokenInstance.transfer(
         secondChanceRewardDistributorInstance.address,
@@ -135,7 +138,9 @@ describe("Seed investor staking tests", function () {
       );
 
       const releaseDate = await GetTimeStamp();
-      await secondChanceRewardDistributorInstance.setReleaseDate(releaseDate);
+      await secondChanceRewardDistributorInstance.setReleaseDate(
+        releaseDate + 1000
+      );
       await fastForward(40 * DAY);
 
       await secondChanceRewardDistributorInstance
@@ -162,7 +167,9 @@ describe("Seed investor staking tests", function () {
       );
 
       const releaseDate = await GetTimeStamp();
-      await secondChanceRewardDistributorInstance.setReleaseDate(releaseDate);
+      await secondChanceRewardDistributorInstance.setReleaseDate(
+        releaseDate + 1000
+      );
       await fastForward(61 * DAY);
 
       await secondChanceRewardDistributorInstance
@@ -189,7 +196,9 @@ describe("Seed investor staking tests", function () {
       );
 
       const releaseDate = await GetTimeStamp();
-      await secondChanceRewardDistributorInstance.setReleaseDate(releaseDate);
+      await secondChanceRewardDistributorInstance.setReleaseDate(
+        releaseDate + 1000
+      );
       await fastForward(151 * DAY);
 
       await secondChanceRewardDistributorInstance
@@ -206,7 +215,7 @@ describe("Seed investor staking tests", function () {
       expect(userBalanceAfter).to.equal("155400000000000000000000");
     });
 
-    it("Should succeed: withraw after each phase", async function () {
+    it("Should succeed: withdraw after each phase", async function () {
       await tokenInstance.transfer(
         secondChanceRewardDistributorInstance.address,
         "888000000000000000000000"
@@ -216,7 +225,9 @@ describe("Seed investor staking tests", function () {
       );
 
       const releaseDate = await GetTimeStamp();
-      await secondChanceRewardDistributorInstance.setReleaseDate(releaseDate);
+      await secondChanceRewardDistributorInstance.setReleaseDate(
+        releaseDate + 1000
+      );
 
       const contractBalanceBefore = await tokenInstance.balanceOf(
         secondChanceRewardDistributorInstance.address
@@ -227,7 +238,7 @@ describe("Seed investor staking tests", function () {
       expect(userBalanceBefore).to.equal("0");
 
       for (let i = 0; i < 18; i++) {
-        await fastForward(30 * DAY);
+        await fastForward(30 * DAY + 1000);
         await secondChanceRewardDistributorInstance
           .connect(addr2)
           .withdraw(web3.utils.toWei("444000", "ether"), [
@@ -258,7 +269,9 @@ describe("Seed investor staking tests", function () {
       const userBalanceBefore = await tokenInstance.balanceOf(addr2.address);
 
       const releaseDate = await GetTimeStamp();
-      await secondChanceRewardDistributorInstance.setReleaseDate(releaseDate);
+      await secondChanceRewardDistributorInstance.setReleaseDate(
+        releaseDate + 1000
+      );
       await fastForward(1000 * DAY); // 1000 days is way more than the 18 phases, check to see if not more is requested
 
       await secondChanceRewardDistributorInstance
@@ -285,8 +298,10 @@ describe("Seed investor staking tests", function () {
       );
 
       const releaseDate = await GetTimeStamp();
-      await secondChanceRewardDistributorInstance.setReleaseDate(releaseDate);
-      await fastForward(540 * DAY);
+      await secondChanceRewardDistributorInstance.setReleaseDate(
+        releaseDate + 1000
+      );
+      await fastForward(540 * DAY + 1000);
       await secondChanceRewardDistributorInstance.setMerkleRoot(
         "0x386f109f74a187861fa7405d06f4bac61d3fdea0d71aa222cc185cd8573a4db4"
       );
